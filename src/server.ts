@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import connectDB from "./db/db";
 import useRoutes from "./routes/user.route";
+import { categoryRoutes } from "./routes/category.route";
 const app = express();
 app.use(express.json());
 const PORT = 3000;
@@ -9,6 +10,7 @@ app.get("/ping", (request: Request, response: Response) => {
   response.send("pong");
 });
 app.use("/user", useRoutes);
+app.use("/categories", categoryRoutes);
 app.listen(PORT, () => {
   console.log("Server listening on port " + PORT + "...");
 });
