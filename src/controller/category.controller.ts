@@ -41,3 +41,43 @@ export const createCategory = async (
     throw error;
   }
 };
+export const deleteCategory = async (
+  request: AuthRequest,
+  response: Response
+) => {
+  try {
+    const { id } = request.params;
+    await Category.deleteMany({ _id: id });
+    response.send({ message: "Category deleted" });
+  } catch (error) {
+    response.send({ message: "Something went wrong" });
+    console.log("error in deleteCategory", error);
+    throw error;
+  }
+};
+
+export const updateCategory = async (
+  request: AuthRequest,
+  response: Response
+) => {
+  try {
+    const { _id, color, icon, isEditable, name }: ICategory = request.body;
+    await Category.updateOne(
+      {
+        _id,
+      },
+      {
+        $set: {
+          name,
+          color,
+          icon,
+          isEditable,
+        },
+      }
+    );
+    response.send({ message: "Category updated successfully" });
+  } catch (error) {
+    response.send({ message: "error in updateCategory" });
+    console.log("error in updateCategory", error);
+  }
+};
