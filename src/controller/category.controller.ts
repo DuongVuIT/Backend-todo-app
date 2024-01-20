@@ -75,7 +75,7 @@ export const updateCategory = async (
         },
       }
     );
-    response.send({ message: "Category updated successfully" });
+    response.send({ message: "Category updated success" });
   } catch (error) {
     response.send({ message: "error in updateCategory" });
     console.log("error in updateCategory", error);
