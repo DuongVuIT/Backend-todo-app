@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";
-import connectDB from "./db/db";
 import useRoutes from "./routes/user.route";
 import { categoryRoutes } from "./routes/category.route";
+import { connectDB } from "./db/db";
 const app = express();
 app.use(express.json());
 const PORT = 3000;

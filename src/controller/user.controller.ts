@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import User from "../model/user-modal";
+import User from "../model/user-model";
 import { IUser } from "../types";
 import { Types } from "mongoose";
 const getUserToken = (_id: string | Types.ObjectId) => {
