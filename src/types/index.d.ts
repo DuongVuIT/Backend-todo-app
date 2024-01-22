@@ -21,3 +21,15 @@ export interface ICategory {
   color: IColor;
   icon: IIcon;
 }
+
+export interface ITask {
+  _id: String;
+  name: String;
+  categoryId: String;
+  user: string;
+  isCompleted: boolean;
+  isEditable: boolean;
+  date: String;
+  createdAt: String;
+  updatedAt: String;
+}
